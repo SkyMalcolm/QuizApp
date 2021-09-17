@@ -9,10 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 
 class PlayActivity : AppCompatActivity(), View.OnClickListener {
 
+    fun startFailActivity() {
+        val intent = Intent(this, FailActivity::class.java)
+        startActivity(intent)
+    }
+
     var question: Questions? = null
-    var currentPosition: Int = 1
+    var currentQuestionPosition: Int = 1
     var questionsList: MutableList<Questions>? = null
-    var selectedPosition : Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,11 +32,11 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun questionDisplay() {
-        lateinit var questionAsked : TextView
-        lateinit var answer1 : TextView
-        lateinit var answer2 : TextView
-        lateinit var answer3 : TextView
-        lateinit var answer4 : TextView
+        lateinit var questionAsked: TextView
+        lateinit var answer1: TextView
+        lateinit var answer2: TextView
+        lateinit var answer3: TextView
+        lateinit var answer4: TextView
 
         questionAsked = findViewById(R.id.questionAsked)
         answer1 = findViewById(R.id.answer1)
@@ -41,7 +45,7 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
         answer4 = findViewById(R.id.answer4)
 
 
-        question = questionsList!![currentPosition-1]
+        question = questionsList!![currentQuestionPosition - 1]
 
         questionAsked.text = question!!.question
 
@@ -55,25 +59,27 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
         answer3.setOnClickListener(this)
         answer4.setOnClickListener(this)
 
+
     }
 
+
     override fun onClick(p0: View?) {
-        Log.d("hej", "${p0?.tag}")
+
 
         if (question?.correctAnswer.toString() == "${p0?.tag}") {
-            Log.d("hejdå", "ja rött svar")
-            currentPosition++
-            when{
-                currentPosition <= questionsList!!.size ->{
-                    questionDisplay()
-                }
+            currentQuestionPosition++
+
+        } else {
+            startFailActivity()
+
+        }
+        when {
+            currentQuestionPosition <= questionsList!!.size -> {
+                questionDisplay()
 
             }
         }
 
     }
-
-
-
 
 }
