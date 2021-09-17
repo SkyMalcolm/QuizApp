@@ -13,14 +13,14 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.playButton)
 
         button.setOnClickListener {
-            startPlayQuiz()
+            startPlayActivity()
         }
 
     }
 
 
-    fun startPlayQuiz() {
-        val intent = Intent(this, playQuiz::class.java)
+    private fun startPlayActivity() {
+        val intent = Intent(this, PlayActivity::class.java)
 
         startActivity(intent)
     }

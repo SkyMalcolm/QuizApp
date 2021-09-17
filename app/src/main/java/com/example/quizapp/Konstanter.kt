@@ -3,7 +3,7 @@ package com.example.quizapp
 object Konstanter {
 
     fun getQuestions(): MutableList<Questions> {
-        val QuestionsList = mutableListOf<Questions>()
+        val questionsList = mutableListOf<Questions>()
 
 
         val question1 = Questions(
@@ -16,7 +16,7 @@ object Konstanter {
             1
         )
 
-        QuestionsList.add(question1)
+        questionsList.add(question1)
 
         val question2 = Questions(
             2,
@@ -28,7 +28,7 @@ object Konstanter {
             3
         )
 
-        QuestionsList.add(question2)
+        questionsList.add(question2)
 
         val question3 = Questions(
             3,
@@ -40,7 +40,7 @@ object Konstanter {
             4
         )
 
-        QuestionsList.add(question3)
+        questionsList.add(question3)
 
         val question4 = Questions(
             4,
@@ -52,9 +52,9 @@ object Konstanter {
             1
         )
 
-        QuestionsList.add(question4)
+        questionsList.add(question4)
 
-        return QuestionsList
+        return questionsList
 
 
     }
