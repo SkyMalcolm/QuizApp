@@ -6,17 +6,23 @@ import android.graphics.drawable.AnimationDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Handler
 import android.os.SystemClock
 import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 
 class PlayActivity : AppCompatActivity(), View.OnClickListener {
 
     lateinit var questionAsked: TextView
     lateinit var txtTime: TextView
+    lateinit var cardAnswer1: CardView
+    lateinit var cardAnswer2: CardView
+    lateinit var cardAnswer3: CardView
+    lateinit var cardAnswer4: CardView
     lateinit var answer1: TextView
     lateinit var answer2: TextView
     lateinit var answer3: TextView
@@ -49,34 +55,44 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
         questionAsked = findViewById(R.id.questionAsked)
 
         txtTime = findViewById(R.id.txtTime)
+
+        cardAnswer1 = findViewById(R.id.cardAnswer1)
+        cardAnswer2 = findViewById(R.id.cardAnswer2)
+        cardAnswer3 = findViewById(R.id.cardAnswer3)
+        cardAnswer4 = findViewById(R.id.cardAnswer4)
+
         answer1 = findViewById(R.id.answer1)
         answer2 = findViewById(R.id.answer2)
         answer3 = findViewById(R.id.answer3)
         answer4 = findViewById(R.id.answer4)
 
-        answer1.setOnClickListener(this)
-        answer2.setOnClickListener(this)
-        answer3.setOnClickListener(this)
-        answer4.setOnClickListener(this)
+        cardAnswer1.setOnClickListener(this)
+        cardAnswer2.setOnClickListener(this)
+        cardAnswer3.setOnClickListener(this)
+        cardAnswer4.setOnClickListener(this)
 
         score = findViewById(R.id.scoreCount)
 
         questionsList = Konstanter.getQuestions()
 
-        timer = object : CountDownTimer(15000, 1000) {
+        timer = object : CountDownTimer(17000, 1000) {
 
             override fun onTick(millisUntilFinished: Long) {
-                txtTime.setText((millisUntilFinished / 1000).toString())
+                if ((millisUntilFinished/1000) <= 2) {
+                    txtTime.setText("Time's up")
+                } else {
+                    txtTime.setText((millisUntilFinished/1000 - 2).toString())
+                }
 
-                if ((millisUntilFinished/1000) <= 5) {
+
+                if ((millisUntilFinished/1000) <= 7) {
                     txtTime.setTextColor(Color.RED)
+                } else {
+                    txtTime.setTextColor(Color.WHITE)
                 }
             }
 
             override fun onFinish() {
-                txtTime.setText("Time's up!")
-
-                Thread.sleep(500)
                 startFailActivity()
             }
         }

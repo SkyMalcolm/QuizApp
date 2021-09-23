@@ -3,106 +3,175 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/gradientLayout"
-    android:background="@drawable/gradient_animation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
     tools:context=".PlayActivity">
 
 
-   /* <TextView
-        android:id="@+id/scoreCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="250dp"
-        android:text="Score: 0/10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+ /*
 
-    <TextView
-        android:id="@+id/questionAsked"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="400dp"
-        android:text="Question"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+ <TextView
+     android:id="@+id/scoreCount"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="50dp"
+     android:layout_marginEnd="250dp"
+     android:text="Score: 0/10"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/answer1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-100dp"
-        android:layout_marginEnd="200dp"
-        android:tag="1"
-        android:text="TextView"
-        android:background="@drawable/textview_border"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionAsked" />
+ <TextView
+     android:id="@+id/txtTime"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="156dp"
+     android:text="Time Remaining"
+     android:textColor="#FFFFFF"
+     android:textSize="34sp"
+     android:textStyle="bold"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/answer2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="200dp"
-        android:layout_marginBottom="100dp"
-        android:text="TextView"
-        android:background="@drawable/textview_border"
-        android:padding="10dp"
-        android:tag="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answer1" />
+ <androidx.cardview.widget.CardView
+     android:layout_width="match_parent"
+     android:layout_height="0dp"
+     android:layout_marginTop="150dp"
+     android:layout_marginBottom="-20dp"
+     app:cardCornerRadius="25dp"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/txtTime"
+     app:layout_constraintVertical_bias="1.0">
 
-    <TextView
-        android:id="@+id/answer3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-100dp"
-        android:text="TextView"
-        android:background="@drawable/textview_border"
-        android:padding="10dp"
-        android:tag="3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/answer1"
-        app:layout_constraintTop_toBottomOf="@+id/questionAsked" />
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/answer4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-100dp"
-        android:text="TextView"
-        android:background="@drawable/textview_border"
-        android:padding="10dp"
-        android:tag="4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/answer1"
-        app:layout_constraintTop_toBottomOf="@+id/answer3" />
+   <TextView
+       android:id="@+id/questionAsked"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Question"
+       android:textSize="19sp"
+       android:textStyle="bold"
+       app:layout_constraintBottom_toTopOf="@+id/cardAnswer1"
+       app:layout_constraintStart_toStartOf="@+id/cardAnswer1"
+       app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Time Remaining"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.266" />
+   <androidx.cardview.widget.CardView
+       android:id="@+id/cardAnswer1"
+       android:layout_width="150dp"
+       android:layout_height="100dp"
+       android:tag="1"
+       app:layout_constraintBottom_toTopOf="@+id/cardAnswer3"
+       app:layout_constraintEnd_toStartOf="@+id/cardAnswer2"
+       app:layout_constraintHorizontal_bias="0.5"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <TextView
+         android:id="@+id/answer1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="TextView"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+   </androidx.cardview.widget.CardView>
+
+   <androidx.cardview.widget.CardView
+       android:id="@+id/cardAnswer2"
+       android:layout_width="150dp"
+       android:layout_height="100dp"
+       android:tag="2"
+       app:layout_constraintBottom_toTopOf="@+id/cardAnswer4"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.5"
+       app:layout_constraintStart_toEndOf="@+id/cardAnswer1"
+       app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <TextView
+         android:id="@+id/answer2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="TextView"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+   </androidx.cardview.widget.CardView>
+
+   <androidx.cardview.widget.CardView
+       android:id="@+id/cardAnswer3"
+       android:layout_width="150dp"
+       android:layout_height="100dp"
+       android:tag="3"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toStartOf="@+id/cardAnswer4"
+       app:layout_constraintHorizontal_bias="0.5"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/cardAnswer1">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <TextView
+         android:id="@+id/answer3"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="TextView"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+   </androidx.cardview.widget.CardView>
+
+   <androidx.cardview.widget.CardView
+       android:id="@+id/cardAnswer4"
+       android:layout_width="150dp"
+       android:layout_height="100dp"
+       android:tag="4"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.5"
+       app:layout_constraintStart_toEndOf="@+id/cardAnswer3"
+       app:layout_constraintTop_toBottomOf="@+id/cardAnswer2">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+     <TextView
+         android:id="@+id/answer4"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="TextView"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+   </androidx.cardview.widget.CardView>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+ </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
