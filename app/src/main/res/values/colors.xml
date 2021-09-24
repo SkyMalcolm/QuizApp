@@ -13,4 +13,8 @@
     <color name="colorGradientEnd">#28068f</color>
 
     <color name="colorBorder">#2b2b2b</color>
+
+    <color name="onClickGreen">#2fd90d</color>
+
+    <color name="onClickRed">#e60b3b</color>
 </resources>

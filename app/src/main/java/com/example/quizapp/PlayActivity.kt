@@ -14,6 +14,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
+import java.util.*
+import kotlin.concurrent.schedule
 
 class PlayActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -40,17 +42,20 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
     var currentQuestionPosition: Int = 1
     var questionsList: MutableList<Questions>? = null
     var scoreCount: Int = 0
-    
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_activity)
 
-        val gradientLayout = findViewById<ConstraintLayout>(R.id.gradientLayout)
+        /*val gradientLayout = findViewById<ConstraintLayout>(R.id.gradientLayout)
 
         val animDrawable = gradientLayout.background as AnimationDrawable
         animDrawable.setEnterFadeDuration(10)
         animDrawable.setExitFadeDuration(5000)
         animDrawable.start()
+
+         */
 
         questionAsked = findViewById(R.id.questionAsked)
 
@@ -78,14 +83,14 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
         timer = object : CountDownTimer(17000, 1000) {
 
             override fun onTick(millisUntilFinished: Long) {
-                if ((millisUntilFinished/1000) <= 2) {
+                if ((millisUntilFinished / 1000) <= 2) {
                     txtTime.setText("Time's up")
                 } else {
-                    txtTime.setText((millisUntilFinished/1000 - 2).toString())
+                    txtTime.setText((millisUntilFinished / 1000 - 2).toString())
                 }
 
 
-                if ((millisUntilFinished/1000) <= 7) {
+                if ((millisUntilFinished / 1000) <= 7) {
                     txtTime.setTextColor(Color.RED)
                 } else {
                     txtTime.setTextColor(Color.WHITE)
@@ -114,24 +119,37 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
         answer3.text = question?.optionThree
         answer4.text = question?.optionFour
         timer.start()
+
+
     }
 
     override fun onClick(p0: View?) {
 
         if (question?.correctAnswer.toString() == "${p0?.tag}") {
             timer.cancel()
-            currentQuestionPosition++
-            scoreCount++
+            p0?.setBackgroundColor(Color.GREEN)
+            Handler().postDelayed( {
+                p0?.setBackgroundColor(Color.WHITE)
+                currentQuestionPosition++
+                scoreCount++
+                when {
+                    currentQuestionPosition <= questionsList!!.size -> {
+                        questionDisplay()
+                    }
+                }
+            } , 2000)
 
-        } else {
-            startFailActivity()
-        }
-        when {
-            currentQuestionPosition <= questionsList!!.size -> {
-                questionDisplay()
+            } else {
+            p0?.setBackgroundColor(Color.RED)
+                Handler().postDelayed({
+                    startFailActivity()
+                } , 2000)
             }
+
+
+
         }
 
     }
 
-}
+
