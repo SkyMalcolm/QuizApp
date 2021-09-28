@@ -2,9 +2,11 @@ package com.example.quizapp
 
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 
 class MainActivity : AppCompatActivity() {

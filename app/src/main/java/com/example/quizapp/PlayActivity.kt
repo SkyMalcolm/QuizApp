@@ -2,20 +2,13 @@ package com.example.quizapp
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.AnimationDrawable
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
-import android.os.SystemClock
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
-import java.util.*
-import kotlin.concurrent.schedule
 
 class PlayActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -32,6 +25,10 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var score: TextView
     lateinit var timer: CountDownTimer
 
+    fun startWinActivity() {
+        val intent = Intent(this@PlayActivity, WinActivity::class.java)
+        startActivity(intent)
+    }
 
     fun startFailActivity() {
         val intent = Intent(this, FailActivity::class.java)
@@ -128,28 +125,32 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
         if (question?.correctAnswer.toString() == "${p0?.tag}") {
             timer.cancel()
             p0?.setBackgroundColor(Color.GREEN)
-            Handler().postDelayed( {
+            Handler().postDelayed({
                 p0?.setBackgroundColor(Color.WHITE)
                 currentQuestionPosition++
                 scoreCount++
-                when {
-                    currentQuestionPosition <= questionsList!!.size -> {
+                if ( currentQuestionPosition <= questionsList!!.size ) {
                         questionDisplay()
-                    }
+                } else {
+                    val intent = Intent(this, WinActivity::class.java)
+                    startActivity(intent)
                 }
-            } , 2000)
 
-            } else {
+
+            }, 1000)
+
+        } else {
             p0?.setBackgroundColor(Color.RED)
-                Handler().postDelayed({
-                    startFailActivity()
-                } , 2000)
-            }
-
-
-
+            Handler().postDelayed({
+                startFailActivity()
+            }, 1000)
         }
 
     }
+
+
+}
+
+
 
 

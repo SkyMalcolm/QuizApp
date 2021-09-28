@@ -7,10 +7,11 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.constraintlayout.widget.ConstraintLayout
 
-class FailActivity : AppCompatActivity() {
+class WinActivity : AppCompatActivity() {
+    private lateinit var button: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fail)
+        setContentView(R.layout.activity_win)
 
         val gradientLayout = findViewById<ConstraintLayout>(R.id.gradientLayout)
 
@@ -19,13 +20,15 @@ class FailActivity : AppCompatActivity() {
         animDrawable.setExitFadeDuration(5000)
         animDrawable.start()
 
-        lateinit var button: Button
-        button = findViewById(R.id.restartButton)
 
-        button.setOnClickListener{
+        button = findViewById(R.id.playAgainButton)
+
+        button.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
 
-}
+
+    }
+

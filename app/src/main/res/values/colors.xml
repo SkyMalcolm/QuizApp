@@ -8,9 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorGradientStart">#28068f</color>
-    <color name="colorGradientCenter">#FFD700</color>
-    <color name="colorGradientEnd">#28068f</color>
+    <color name="colorGradientStart">#3ae80e</color>
+    <color name="colorGradientCenter">#f3f5f2</color>
+    <color name="colorGradientEnd">#3ae80e</color>
 
     <color name="colorBorder">#2b2b2b</color>
 

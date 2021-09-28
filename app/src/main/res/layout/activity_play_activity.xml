@@ -2,14 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/gradientLayout"
+    android:id="@+id/playBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
+    android:background="@drawable/gradient_start"
     tools:context=".PlayActivity">
 
 
- /*
 
  <TextView
      android:id="@+id/scoreCount"
@@ -17,7 +16,8 @@
      android:layout_height="wrap_content"
      android:layout_marginTop="50dp"
      android:layout_marginEnd="250dp"
-     android:text="Score: 0/10"
+     android:textSize="20sp"
+     android:textStyle="bold"
      app:layout_constraintEnd_toEndOf="parent"
      app:layout_constraintStart_toStartOf="parent"
      app:layout_constraintTop_toTopOf="parent" />
@@ -49,14 +49,17 @@
      app:layout_constraintVertical_bias="1.0">
 
   <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/mainCardView"
       android:layout_width="match_parent"
-      android:layout_height="match_parent">
+      android:layout_height="match_parent"
+      android:background="#303030">
 
    <TextView
        android:id="@+id/questionAsked"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="Question"
+       android:textColor="@color/white"
        android:textSize="19sp"
        android:textStyle="bold"
        app:layout_constraintBottom_toTopOf="@+id/cardAnswer1"
@@ -67,8 +70,8 @@
        android:id="@+id/cardAnswer1"
        android:layout_width="150dp"
        android:layout_height="100dp"
-       android:tag="1"
        android:background="@color/onClickGreen"
+       android:tag="1"
        app:layout_constraintBottom_toTopOf="@+id/cardAnswer3"
        app:layout_constraintEnd_toStartOf="@+id/cardAnswer2"
        app:layout_constraintHorizontal_bias="0.5"

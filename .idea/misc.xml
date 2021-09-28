@@ -9,6 +9,8 @@
         <entry key="app/src/main/res/drawable/answer_color_set.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/drawable/button_pressed.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/drawable/cardview_press_color.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/drawable/dollar sign_background.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/drawable/dollarsignbackground.xml" value="0.13645833333333332" />
         <entry key="app/src/main/res/drawable/gradient_animation.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/gradient_center.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/gradient_end.xml" value="0.1" />
@@ -16,12 +18,14 @@
         <entry key="app/src/main/res/drawable/textview_border.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_fail.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/activity_play_activity.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_play_activity.xml" value="0.17" />
         <entry key="app/src/main/res/layout/activity_play_quiz.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_win.xml" value="0.33" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/dollar sign.xml" value="0.13645833333333332" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
