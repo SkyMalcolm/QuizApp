@@ -37,16 +37,6 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var cardPrize8: CardView
     lateinit var cardPrize9: CardView
     lateinit var cardPrize10: CardView
-    lateinit var txtPrize1: TextView
-    lateinit var txtPrize2: TextView
-    lateinit var txtPrize3: TextView
-    lateinit var txtPrize4: TextView
-    lateinit var txtPrize5: TextView
-    lateinit var txtPrize6: TextView
-    lateinit var txtPrize7: TextView
-    lateinit var txtPrize8: TextView
-    lateinit var txtPrize9: TextView
-    lateinit var txtPrize10: TextView
 
     lateinit var currentPrize: CardView
     var currentPrizePosition: Int = 0
@@ -54,36 +44,19 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
     var question: Questions? = null
     var currentQuestionPosition: Int = 1
     var questionsList: MutableList<Questions>? = null
-    var scoreCount: Int = 0
 
     var prizeList = mutableListOf<CardView>()
-
-    fun startWinActivity() {
-        val intent = Intent(this@PlayActivity, WinActivity::class.java)
-        startActivity(intent)
-    }
 
     fun startFailActivity() {
         val intent = Intent(this, FailActivity::class.java)
         startActivity(intent)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_activity)
 
-        /*val gradientLayout = findViewById<ConstraintLayout>(R.id.gradientLayout)
-
-        val animDrawable = gradientLayout.background as AnimationDrawable
-        animDrawable.setEnterFadeDuration(10)
-        animDrawable.setExitFadeDuration(5000)
-        animDrawable.start()
-
-         */
-
         questionAsked = findViewById(R.id.questionAsked)
-        score = findViewById(R.id.scoreCount)
         txtTime = findViewById(R.id.txtTime)
 
         cardAnswer1 = findViewById(R.id.cardAnswer1)
@@ -132,7 +105,7 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
                     currentPrize.setCardBackgroundColor(Color.rgb(247, 12, 40))
                     txtTime.setText("Time's up")
                 } else {
-                    txtTime.setText((millisUntilFinished / 1000 - 2).toString())
+                    txtTime.setText("Remaining time: " + (millisUntilFinished / 1000 - 2).toString())
                 }
 
 
@@ -153,8 +126,6 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun questionDisplay() {
-
-        score.text = scoreCount.toString()
 
         question = questionsList!![currentQuestionPosition - 1]
 
@@ -181,7 +152,6 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
                 currentPrize.setCardBackgroundColor(Color.rgb(183, 255, 0))
                 currentQuestionPosition++
                 currentPrizePosition++
-                scoreCount++
                 if ( currentQuestionPosition <= questionsList!!.size ) {
                         questionDisplay()
                 } else {

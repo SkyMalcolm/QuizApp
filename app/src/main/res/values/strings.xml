@@ -17,4 +17,13 @@
     <string name="strAnswer2">TextView</string>
     <string name="strAnswer3">TextView</string>
     <string name="strAnswer4">TextView</string>
+    <string name="strPlayAgain">Play again!</string>
+    <string name="strPrizeMoney">Prizemoney: 1.000.000</string>
+    <string name="strAnswerCorrect">You answered everything correct!</string>
+    <string name="strCongratulations">Congratulations!</string>
+    <string name="strTryAgain">Try again</string>
+    <string name="strFail">You thought you knew it all..</string>
+    <string name="strPlay">Play!</string>
+    <string name="strWelcomeText">Who wants to be a millionaire</string>
+    <string name="cashisking">cash</string>
 </resources>
