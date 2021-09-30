@@ -16,7 +16,6 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var questionAsked: TextView
     lateinit var txtTime: TextView
     lateinit var timer: CountDownTimer
-    lateinit var prizeView: TextView
 
     lateinit var cardAnswer1: CardView
     lateinit var cardAnswer2: CardView
@@ -48,8 +47,9 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
 
     var prizeList = mutableListOf<CardView>()
 
-    fun startFailActivity() {
+    fun startFailActivity(prize: String) {
         val intent = Intent(this, FailActivity::class.java)
+        intent.putExtra("Prize", prize)
         startActivity(intent)
     }
 
@@ -59,7 +59,6 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
 
         questionAsked = findViewById(R.id.questionAsked)
         txtTime = findViewById(R.id.txtTime)
-        prizeView = findViewById(R.id.prizeView)
 
         cardAnswer1 = findViewById(R.id.cardAnswer1)
         cardAnswer2 = findViewById(R.id.cardAnswer2)
@@ -119,7 +118,7 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             override fun onFinish() {
-                startFailActivity()
+                startFailActivity(currentPrize.tag.toString())
             }
         }
 
@@ -164,17 +163,16 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
                 }
 
 
-            }, 1500)
+            }, 250)
 
         } else {
             timer.cancel()
             p0?.setBackgroundColor(Color.RED)
             currentPrize.setCardBackgroundColor(Color.rgb(247, 12, 40))
             Handler().postDelayed({
-                startFailActivity()
-                prizeView.setText("Your prize is ${currentPrize}")
+                startFailActivity(currentPrize.tag.toString())
                 finish()
-            }, 1500)
+            }, 250)
         }
 
     }
