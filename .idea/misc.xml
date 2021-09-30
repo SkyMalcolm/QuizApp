@@ -17,7 +17,7 @@
         <entry key="app/src/main/res/drawable/gradient_start.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/textview_border.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_fail.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_play_activity.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_play_quiz.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_win.xml" value="0.33" />
