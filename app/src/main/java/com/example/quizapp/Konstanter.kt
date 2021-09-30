@@ -18,7 +18,7 @@ object Konstanter {
 
         questionsList.add(question1)
 
-      /*  val question2 = Questions(
+        val question2 = Questions(
             2,
             "What year did World War II end?",
             "1939",
@@ -125,7 +125,7 @@ object Konstanter {
 
         questionsList.add(question10)
 
-       */
+
 
         return questionsList
 

@@ -8,38 +8,42 @@
     tools:context=".PlayActivity">
 
 
-
  <TextView
      android:id="@+id/scoreCount"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
-     android:layout_marginTop="50dp"
-     android:layout_marginEnd="250dp"
+     android:layout_marginStart="20dp"
+     android:layout_marginTop="56dp"
+     android:text="0/10"
+     android:textColor="#FFFFFF"
      android:textSize="20sp"
      android:textStyle="bold"
-     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintEnd_toStartOf="@+id/txtTime"
+     app:layout_constraintHorizontal_bias="0.175"
      app:layout_constraintStart_toStartOf="parent"
      app:layout_constraintTop_toTopOf="parent" />
-
 
  <TextView
      android:id="@+id/txtTime"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
-     android:layout_marginTop="156dp"
+     android:layout_marginStart="30dp"
+     android:layout_marginTop="44dp"
      android:text="Time Remaining"
      android:textColor="#FFFFFF"
      android:textSize="34sp"
      android:textStyle="bold"
      app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintHorizontal_bias="0.496"
      app:layout_constraintStart_toStartOf="parent"
      app:layout_constraintTop_toTopOf="parent" />
 
  <androidx.cardview.widget.CardView
+     android:id="@+id/cardView"
      android:layout_width="match_parent"
      android:layout_height="0dp"
-     android:layout_marginTop="150dp"
-     android:layout_marginBottom="-20dp"
+     android:layout_marginTop="320dp"
+     app:cardBackgroundColor="#02084f"
      app:cardCornerRadius="25dp"
      app:layout_constraintBottom_toBottomOf="parent"
      app:layout_constraintEnd_toEndOf="parent"
@@ -50,8 +54,7 @@
   <androidx.constraintlayout.widget.ConstraintLayout
       android:id="@+id/mainCardView"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:background="#02084f">
+      android:layout_height="match_parent">
 
    <TextView
        android:id="@+id/questionAsked"
@@ -71,6 +74,7 @@
        android:layout_height="100dp"
        android:background="@color/onClickGreen"
        android:tag="1"
+       app:cardCornerRadius="10dp"
        app:layout_constraintBottom_toTopOf="@+id/cardAnswer3"
        app:layout_constraintEnd_toStartOf="@+id/cardAnswer2"
        app:layout_constraintHorizontal_bias="0.5"
@@ -99,6 +103,7 @@
        android:layout_width="150dp"
        android:layout_height="100dp"
        android:tag="2"
+       app:cardCornerRadius="10dp"
        app:layout_constraintBottom_toTopOf="@+id/cardAnswer4"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.5"
@@ -127,6 +132,7 @@
        android:layout_width="150dp"
        android:layout_height="100dp"
        android:tag="3"
+       app:cardCornerRadius="10dp"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toStartOf="@+id/cardAnswer4"
        app:layout_constraintHorizontal_bias="0.5"
@@ -155,6 +161,7 @@
        android:layout_width="150dp"
        android:layout_height="100dp"
        android:tag="4"
+       app:cardCornerRadius="10dp"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.5"
@@ -180,5 +187,143 @@
 
   </androidx.constraintlayout.widget.ConstraintLayout>
  </androidx.cardview.widget.CardView>
+
+ <androidx.constraintlayout.widget.ConstraintLayout
+     android:id="@+id/contentConstraint"
+     android:layout_width="409dp"
+     android:layout_height="319dp"
+     app:layout_constraintBottom_toTopOf="@+id/cardView"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintHorizontal_bias="0.0"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/txtTime"
+     app:layout_constraintVertical_bias="1.0">
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/prize1"
+      android:layout_width="100dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="15dp"
+      app:cardCornerRadius="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/prize5">
+
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/prize2"
+      android:layout_width="100dp"
+      android:layout_height="50dp"
+      android:layout_marginBottom="40dp"
+      app:cardCornerRadius="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/prize5"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/prize3" />
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/prize3"
+      android:layout_width="100dp"
+      android:layout_height="50dp"
+      app:cardCornerRadius="10dp"
+      app:layout_constraintBottom_toTopOf="@+id/prize2"
+      app:layout_constraintEnd_toStartOf="@+id/prize6"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/prize4" />
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/prize4"
+      android:layout_width="100dp"
+      android:layout_height="50dp"
+      app:cardCornerRadius="10dp"
+      app:layout_constraintBottom_toTopOf="@+id/prize3"
+      app:layout_constraintEnd_toStartOf="@+id/prize7"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/prize8"
+      android:layout_width="100dp"
+      android:layout_height="50dp"
+      android:layout_marginBottom="40dp"
+      app:cardCornerRadius="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/prize5"
+      app:layout_constraintTop_toBottomOf="@+id/prize9">
+
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/prize9"
+      android:layout_width="100dp"
+      android:layout_height="50dp"
+      app:cardCornerRadius="10dp"
+      app:layout_constraintBottom_toTopOf="@+id/prize8"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/prize6"
+      app:layout_constraintTop_toBottomOf="@+id/prize10">
+
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/prize10"
+      android:layout_width="100dp"
+      android:layout_height="50dp"
+      app:cardBackgroundColor="#FFD500"
+      app:cardCornerRadius="10dp"
+      app:layout_constraintBottom_toTopOf="@+id/prize9"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/prize7"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/prize5"
+      android:layout_width="100dp"
+      android:layout_height="50dp"
+      android:layout_marginBottom="40dp"
+      app:cardCornerRadius="10dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/prize8"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/prize2"
+      app:layout_constraintTop_toBottomOf="@+id/prize6">
+
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/prize6"
+      android:layout_width="100dp"
+      android:layout_height="50dp"
+      app:cardCornerRadius="10dp"
+      app:layout_constraintBottom_toTopOf="@+id/prize5"
+      app:layout_constraintEnd_toStartOf="@+id/prize9"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/prize3"
+      app:layout_constraintTop_toBottomOf="@+id/prize7">
+
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/prize7"
+      android:layout_width="100dp"
+      android:layout_height="50dp"
+      app:cardCornerRadius="10dp"
+      app:layout_constraintBottom_toTopOf="@+id/prize6"
+      app:layout_constraintEnd_toStartOf="@+id/prize10"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/prize4"
+      app:layout_constraintTop_toTopOf="parent" />
+
+
+ </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
