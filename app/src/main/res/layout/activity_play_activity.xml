@@ -42,14 +42,12 @@
      android:id="@+id/cardView"
      android:layout_width="match_parent"
      android:layout_height="0dp"
-     android:layout_marginTop="320dp"
      app:cardBackgroundColor="#02084f"
      app:cardCornerRadius="25dp"
      app:layout_constraintBottom_toBottomOf="parent"
      app:layout_constraintEnd_toEndOf="parent"
      app:layout_constraintStart_toStartOf="parent"
-     app:layout_constraintTop_toBottomOf="@+id/txtTime"
-     app:layout_constraintVertical_bias="1.0">
+     app:layout_constraintTop_toBottomOf="@+id/contentConstraint">
 
   <androidx.constraintlayout.widget.ConstraintLayout
       android:id="@+id/mainCardView"
@@ -62,7 +60,7 @@
        android:layout_height="wrap_content"
        android:text="@string/strQuestion"
        android:textColor="@color/white"
-       android:textSize="19sp"
+       android:textSize="15sp"
        android:textStyle="bold"
        app:layout_constraintBottom_toTopOf="@+id/cardAnswer1"
        app:layout_constraintStart_toStartOf="@+id/cardAnswer1"

@@ -3,12 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable/ic_quizapp_bar_2.xml" value="0.3135" />
-        <entry key="app/src/main/res/layout/activity_fail.xml" value="0.12" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2002947998046875" />
-        <entry key="app/src/main/res/layout/activity_play_activity.xml" value="0.2954406738281251" />
+        <entry key="app/src/main/res/drawable-v24/gradient_center.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/gradient_end.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/answer_color.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/drawable/answer_color_set.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/drawable/button_pressed.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/drawable/cardview_press_color.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/drawable/dollar sign_background.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/drawable/dollarsignbackground.xml" value="0.13645833333333332" />
+        <entry key="app/src/main/res/drawable/gradient_animation.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/gradient_center.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/gradient_end.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/gradient_start.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/textview_border.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_fail.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_play_activity.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_play_quiz.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_win.xml" value="0.15931701660156253" />
+        <entry key="app/src/main/res/layout/activity_win.xml" value="0.33" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/dollar sign.xml" value="0.13645833333333332" />
       </map>
     </option>
   </component>

@@ -125,10 +125,11 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
 
         questionsList = Konstanter.getQuestions()
 
-        timer = object : CountDownTimer(17000, 1000) {
+        timer = object : CountDownTimer(18000, 1000) {
 
             override fun onTick(millisUntilFinished: Long) {
                 if ((millisUntilFinished / 1000) <= 2) {
+                    currentPrize.setCardBackgroundColor(Color.rgb(247, 12, 40))
                     txtTime.setText("Time's up")
                 } else {
                     txtTime.setText((millisUntilFinished / 1000 - 2).toString())
@@ -184,18 +185,23 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
                 if ( currentQuestionPosition <= questionsList!!.size ) {
                         questionDisplay()
                 } else {
+                    timer.cancel()
                     val intent = Intent(this, WinActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
 
 
-            }, 1000)
+            }, 1500)
 
         } else {
+            timer.cancel()
             p0?.setBackgroundColor(Color.RED)
+            currentPrize.setCardBackgroundColor(Color.rgb(247, 12, 40))
             Handler().postDelayed({
                 startFailActivity()
-            }, 1000)
+                finish()
+            }, 1500)
         }
 
     }
