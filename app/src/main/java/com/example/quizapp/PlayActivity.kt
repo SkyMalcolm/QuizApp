@@ -6,13 +6,14 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
 import android.view.View
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.example.quizapp.DataBase.AppDataBase
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
-class PlayActivity : AppCompatActivity(), View.OnClickListener {
-
+class PlayActivity : AppCompatActivity(), View.OnClickListener, CoroutineScope {
     lateinit var questionAsked: TextView
     lateinit var txtTime: TextView
     lateinit var timer: CountDownTimer
@@ -26,7 +27,6 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var answer3: TextView
     lateinit var answer4: TextView
 
-
     lateinit var cardPrize1: CardView
     lateinit var cardPrize2: CardView
     lateinit var cardPrize3: CardView
@@ -39,11 +39,20 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var cardPrize10: CardView
     lateinit var currentPrize: CardView
 
+    lateinit var db : AppDataBase
+
+    private lateinit var job : Job
+
+    var questionList : MutableList<Questions> = mutableListOf()
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
+
     var currentPrizePosition: Int = 0
 
     var question: Questions? = null
+
     var currentQuestionPosition: Int = 1
-    var questionsList: MutableList<Questions>? = null
 
     var prizeList = mutableListOf<CardView>()
 
@@ -56,6 +65,14 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_play_activity)
+
+        job = Job()
+
+        db = AppDataBase.getInstance(this)!!
+
+      //addNewQuestions(questionList)
+
+        loadAllQuestions()
 
         questionAsked = findViewById(R.id.questionAsked)
         txtTime = findViewById(R.id.txtTime)
@@ -73,7 +90,6 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
         answer2 = findViewById(R.id.answer2)
         answer3 = findViewById(R.id.answer3)
         answer4 = findViewById(R.id.answer4)
-
 
         cardPrize1 = findViewById(R.id.prize1)
         cardPrize2 = findViewById(R.id.prize2)
@@ -96,8 +112,6 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
         prizeList.add(cardPrize8)
         prizeList.add(cardPrize9)
         prizeList.add(cardPrize10)
-
-        questionsList = Konstanter.getQuestions()
 
         timer = object : CountDownTimer(18000, 1000) {
 
@@ -122,13 +136,35 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
 
-        questionDisplay()
+
+    }
+
+    fun addNewQuestions(list: MutableList<Questions>) {
+
+        launch(Dispatchers.IO) {
+            db.listDao().insertAll(list)
+        }
+
+    }
+
+    fun loadAllQuestions() {
+        val questions = async(Dispatchers.IO) {
+            db.listDao().getAll()
+        }
+
+        launch {
+            questionList = questions.await().toMutableList()
+
+            questionDisplay()
+
+        }
+
 
     }
 
     fun questionDisplay() {
 
-        question = questionsList!![currentQuestionPosition - 1]
+        question = questionList!![currentQuestionPosition - 1]
 
         currentPrize = prizeList[currentPrizePosition]
         currentPrize.setCardBackgroundColor(Color.rgb(52,64,201))
@@ -153,7 +189,7 @@ class PlayActivity : AppCompatActivity(), View.OnClickListener {
                 currentPrize.setCardBackgroundColor(Color.rgb(183, 255, 0))
                 currentQuestionPosition++
                 currentPrizePosition++
-                if ( currentQuestionPosition <= questionsList!!.size ) {
+                if ( currentQuestionPosition <= questionList!!.size ) {
                         questionDisplay()
                 } else {
                     timer.cancel()

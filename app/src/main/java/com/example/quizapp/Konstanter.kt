@@ -2,8 +2,9 @@ package com.example.quizapp
 
 object Konstanter {
 
-    fun getQuestions(): MutableList<Questions> {
+    /*fun getQuestions(): MutableList<Questions> {
         val questionsList = mutableListOf<Questions>()
+
 
 
         val question1 = Questions(
@@ -131,4 +132,9 @@ object Konstanter {
 
 
     }
-}
+
+     */
+
+
+
+    }
